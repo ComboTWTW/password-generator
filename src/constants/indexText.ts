@@ -1,18 +1,18 @@
 export const list = [
     {
-    id: "Uppercase",
+    id: "uppercase",
     text: "Include Uppercase Letters",    
     },
     {
-    id: "Lowercase",
+    id: "lowercase",
     text: "Include Lowercase Letters",    
     },
     {
-    id: "Numbers",
+    id: "number",
     text: "Include Numbers",    
     },
     {
-    id: "Symbols",
+    id: "symbols",
     text: "Include Symbols",    
     },
 ]

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { style } from "../style"
 import { PrettoSlider } from '../constants/indexMUI'
 import { CustomCheck } from '../constants/indexMUI';
@@ -6,19 +6,42 @@ import { list } from '../constants/indexText';
 
 const Menu = () => {
 
-    const [leng, setLeng] = useState<number>(10);
+    type menuT = {
+        leng: number;
+        uppercase: boolean;
+        lowercase: boolean;
+        number: boolean;
+        symbols: boolean;
+    }
 
-    const handlePlayersChange = (event: any, newValue: any) => {
-        setLeng(newValue);
+    const [menu, setMenu] = useState<menuT>({
+        leng: 5,
+        uppercase: false,
+        lowercase: false,
+        number: false,
+        symbols: false,
+    });
+    
+
+
+    const handleLengChange = (event: any, newValue: any) => {
+        const obj = {...menu, leng: newValue};
+        setMenu(obj);
       };
 
+    const handlChecks = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const check = event.target.id;
+        setMenu({...menu, [check]:event.target.checked})
+    }
+
+    
     return <div className="flex flex-col">
         <div className={`bg-cardDark ${style.padding} space-y-5`}>
 
             <div className="flex flex-col md:gap-2">
                 <div className="flex flex-row justify-between items-center">
                     <p className={`${style.textRegular} text-white justify-start`} >Character Legth</p>
-                    <p className='justify-end text-2xl font-bold text-green'>{leng}</p>
+                    <p className='justify-end text-2xl font-bold text-green'>{menu.leng}</p>
                 </div>
 
                 <div className="">
@@ -27,8 +50,8 @@ const Menu = () => {
                     step={1}
                     min={5}
                     max={20}
-                    defaultValue={leng}
-                    onChange={handlePlayersChange}
+                    defaultValue={menu.leng}
+                    onChange={handleLengChange}
                     />
                 </div>
             </div>
@@ -39,7 +62,8 @@ const Menu = () => {
                         <li key={item.id} id={item.id} className="flex flex-row items-center space-x-2" >
                             <CustomCheck 
                             value="checkedD"
-                            inputProps={{ 'aria-label': 'Checkbox D' }}/>
+                            id={item.id}
+                            onChange={(event) => handlChecks(event)}/>
                             <p className="tracking-wider text-white font-semibold">{item.text}</p>
                         </li>
                     ))}
