@@ -34,9 +34,10 @@ export const PrettoSlider = withStyles({
   export const CustomCheck = withStyles({
     root: {
       marginLeft: -13,
-      color: "#fff",
-      '&$checked': {
-        color: "rgb(40, 255, 174)",
-      },
-    },
+      color: "white",
+      "&$checked": {
+      color: 'rgb(40, 255, 174)',
+    }
+  },
+  checked: {}
   })(Checkbox);
