@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { style } from "../style"
-import { PrettoSlider } from '../constants/indexMUI'
-import { CustomCheck } from '../constants/indexMUI';
+import { PrettoSlider, CustomCheck } from '../constants/indexMUI'
 import { list } from '../constants/indexText';
+import { passwordGenerator } from "../functions/passwordGenerator";
 
 const Menu = () => {
 
@@ -33,6 +33,9 @@ const Menu = () => {
         const check = event.target.id;
         setMenu({...menu, [check]:event.target.checked})
     }
+
+    console.log(passwordGenerator(menu));
+
 
     
     return <div className="flex flex-col">
