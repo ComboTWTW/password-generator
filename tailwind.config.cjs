@@ -12,10 +12,11 @@ module.exports = {
       colors: {
         "veryDark": '#111016', 
         "cardDark": '#24232b',
+        "lightGray": '#878593',
       }
     },
     screens: {
-      sm: '480px',
+      sm: '350px',
       md: '768px',
       lg: '976px',
       xl: '1440px',
