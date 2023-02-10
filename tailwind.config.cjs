@@ -13,6 +13,7 @@ module.exports = {
         "veryDark": '#111016', 
         "cardDark": '#24232b',
         "lightGray": '#878593',
+        "green": 'rgb(40, 255, 174)',
       }
     },
     screens: {
