@@ -20,10 +20,8 @@ export const passwordGenerator = (menuObj:menuT) => {
     );
 
     const [ length, uppercase, lowercase, numbers, symbols ] = [...Object.values(menuObj)];
-    const checks = [uppercase, lowercase, numbers, symbols];
 
-    
-    
+  
     const generateTheWord = ( length:any, uppercase:any, lowercase:any, numbers:any, symbols:any ) => {
         const word = [];
         while(word.length < length) {
@@ -39,7 +37,9 @@ export const passwordGenerator = (menuObj:menuT) => {
         ///const characters = shuffleArray(word);
         ///return characters.join('');
     }
-
-    return(generateTheWord(length, uppercase, lowercase, numbers, symbols));
-    
+    if (uppercase === false && lowercase === false && numbers === false && symbols === false) {
+      return ("You should check at least 1")
+    } else {
+      return(generateTheWord(length, uppercase, lowercase, numbers, symbols));
+    }
 }

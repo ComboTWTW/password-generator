@@ -38,11 +38,10 @@ const Menu = () => {
         setMenu({...menu, [check]:event.target.checked})
     }
 
-    const [password, setPassword] = useState<string>("");
+    const [password, setPassword] = useState<string>("You should check at least 1");
 
     const wordRender = (menu:menuT) => {
-        const word = passwordGenerator(menu)
-        console.log(word)
+        const word = passwordGenerator(menu);
         setPassword(word);
     }
     
@@ -50,14 +49,14 @@ const Menu = () => {
         <Password password={password}/>
         <div className={`bg-cardDark ${style.padding} space-y-5 mt-6`}>
 
-            <div className="flex flex-col md:gap-2">
+            <div className="flex flex-col gap-3 md:gap-2">
                 {/* Slider Section */}
                 <div className="flex flex-row justify-between items-center">
                     <p className={`${style.textRegular} text-white justify-start`} >Character Legth</p>
                     <p className='justify-end text-2xl font-bold text-green'>{menu.leng}</p>
                 </div>
 
-                <div className="">
+                <div className="mr-[15px]">
                     <PrettoSlider
                     aria-label="custom thumb label"
                     step={1}
@@ -69,8 +68,8 @@ const Menu = () => {
                 </div>
             </div>
             {/* Checkbox Section */}
-            <div className="">
-                <ul className="flex flex-col">
+            <div className="px-1">
+                <ul className="flex flex-col -mt-2 mb-3">
                     {list.map((item) => (
                         <li key={item.id} id={item.id} className="flex flex-row items-center space-x-2" >
                             <CustomCheck 

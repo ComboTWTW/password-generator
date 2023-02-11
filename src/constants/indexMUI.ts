@@ -7,11 +7,15 @@ export const PrettoSlider = withStyles({
       color: 'rgb(40, 255, 174)',
       height: 8,
       
+      
     },
     thumb: {
       height: 24,
       width: 24,
       bottom: 3,
+
+      
+
       backgroundColor: '#fff',
       border: '2px solid currentColor',
       '&:focus, &:hover, &$active': {
@@ -29,6 +33,7 @@ export const PrettoSlider = withStyles({
     rail: {
       height: 8,
       borderRadius: 4,
+      marginLeft: 15, 
     },
   })(Slider);
 
