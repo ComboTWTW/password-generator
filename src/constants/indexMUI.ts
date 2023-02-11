@@ -6,10 +6,12 @@ export const PrettoSlider = withStyles({
     root: {
       color: 'rgb(40, 255, 174)',
       height: 8,
+      
     },
     thumb: {
       height: 24,
       width: 24,
+      bottom: 3,
       backgroundColor: '#fff',
       border: '2px solid currentColor',
       '&:focus, &:hover, &$active': {

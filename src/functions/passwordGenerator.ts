@@ -7,7 +7,7 @@ type menuT = {
 }
 
 export const passwordGenerator = (menuObj:menuT) => {
-    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0,1, 2, 3, 4, 5, 6, 7, 8, 9, 0,1, 2, 3, 4, 5, 6, 7, 8, 9, 0,];
     const symbolsArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
     const characterCodes = Array.from(Array(26)).map((_e, i) => i + 97);
 
@@ -29,7 +29,6 @@ export const passwordGenerator = (menuObj:menuT) => {
           ...(numbers ? numbersArray : []),
           ...(symbols ? symbolsArray : []),
         ];
-        console.log(availableCharacters)
         const shuffleArray = (ar:any) => ar.sort(() => Math.random() - 0.5);
         const characters = shuffleArray(availableCharacters).slice(0, length);
         return characters.join('');

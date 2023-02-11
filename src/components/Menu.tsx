@@ -1,8 +1,12 @@
-import React, { useState } from "react"
-import { style } from "../style"
-import { PrettoSlider, CustomCheck } from '../constants/indexMUI'
+import React, { useState } from "react";
+import { style } from "../style";
+import { PrettoSlider, CustomCheck,  } from '../constants/indexMUI';
 import { list } from '../constants/indexText';
 import { passwordGenerator } from "../functions/passwordGenerator";
+import Password from "../components/Password"
+
+
+
 
 const Menu = () => {
 
@@ -34,14 +38,20 @@ const Menu = () => {
         setMenu({...menu, [check]:event.target.checked})
     }
 
-    console.log(passwordGenerator(menu));
+    const [password, setPassword] = useState<string>("");
 
-
+    const wordRender = (menu:menuT) => {
+        const word = passwordGenerator(menu)
+        console.log(word)
+        setPassword(word);
+    }
     
     return <div className="flex flex-col">
-        <div className={`bg-cardDark ${style.padding} space-y-5`}>
+        <Password password={password}/>
+        <div className={`bg-cardDark ${style.padding} space-y-5 mt-6`}>
 
             <div className="flex flex-col md:gap-2">
+                {/* Slider Section */}
                 <div className="flex flex-row justify-between items-center">
                     <p className={`${style.textRegular} text-white justify-start`} >Character Legth</p>
                     <p className='justify-end text-2xl font-bold text-green'>{menu.leng}</p>
@@ -58,7 +68,7 @@ const Menu = () => {
                     />
                 </div>
             </div>
-
+            {/* Checkbox Section */}
             <div className="">
                 <ul className="flex flex-col">
                     {list.map((item) => (
@@ -72,7 +82,15 @@ const Menu = () => {
                     ))}
                 </ul>
             </div>
+            {/* Strength Section */}
 
+            {/* GenerateButton Section */}
+            <div className="">
+                <button className={`${style.button}`} onClick={() => wordRender(menu)}>
+                    GENERATE
+                </button>
+            </div>            
+            
         </div>
     </div>
 }
