@@ -19,7 +19,7 @@ const Menu = () => {
     }
 
     const [menu, setMenu] = useState<menuT>({
-        leng: 5,
+        leng: 10,
         uppercase: false,
         lowercase: false,
         number: false,
@@ -62,7 +62,7 @@ const Menu = () => {
                     step={1}
                     min={5}
                     max={20}
-                    defaultValue={menu.leng}
+                    defaultValue={10}
                     onChange={handleLengChange}
                     />
                 </div>

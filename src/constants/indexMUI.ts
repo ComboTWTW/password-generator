@@ -12,7 +12,6 @@ export const PrettoSlider = withStyles({
     thumb: {
       height: 24,
       width: 24,
-      bottom: 3,
 
       
 
